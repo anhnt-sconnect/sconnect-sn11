@@ -1401,19 +1401,22 @@
           box-shadow: 0 12px 18px rgba(0,0,0,.18);
         }
         .layer::before {
-          /* top ellipse for 3D feel */
+          /* top ellipse for 3D feel (inset + tuned radii) */
           content: '';
           position: absolute;
-          top: -16px;
-          left: 0;
-          right: 0;
-          height: 32px;
-          border-radius: 50%;
+          top: -14px;
+          left: 6px;
+          right: 6px;
+          height: 28px;
+          /* 50% horizontal for elliptical width; vertical radii tuned for natural curve */
+          border-radius: 50% / 60% 60% 40% 40%;
           background: radial-gradient(ellipse at center,
             #f9e3d4 0%, #edc6af 55%, #e3b59b 100%);
           box-shadow:
             inset 0 10px 14px rgba(255,255,255,.65),
             0 6px 10px rgba(0,0,0,.12);
+          z-index: 0;
+          pointer-events: none;
         }
         .layer1 { bottom: -35px; width: 320px; }
         .layer2 { bottom: 50px; width: 280px; }
@@ -1622,23 +1625,23 @@
             <h2 class="wishes-title">🎂 Lời chúc sinh nhật 🎂</h2>
             <div class="wish-item">
                 <img src="img/cong.jpg" alt="Cong">
-                <span>🌟 Chúc mừng 11 năm Sconnect đã trở thành biểu tượng của ngành công nghiệp sáng tạo Việt Nam</span>
+                <span>🌟 Chúc mừng 11 năm Sconnect – hành trình vượt qua thử thách để trở thành biểu tượng sáng tạo của Việt Nam và vươn tầm quốc tế.</span>
             </div>
             <div class="wish-item">
                 <img src="img/dung.jpg" alt="Dung">
-                <span>🚀 Chúc các sản phẩm của Sconnect chinh phục hàng triệu trái tim trên toàn thế giới</span>
+                <span>🚀 Chúc hệ sinh thái Sconnect trong chặng đường mới sẽ tinh gọn, tập trung vào cốt lõi, chinh phục những mục tiêu lớn và kiến tạo giá trị bền vững cho cộng đồng sáng tạo toàn cầu</span>
             </div>
             <div class="wish-item">
                 <img src="img/hang.jpg" alt="Hang">
-                <span>💎 Chúc đội ngũ Sconnect sau 11 năm vẫn luôn khỏe mạnh, hạnh phúc và tràn đầy cảm hứng sáng tạo</span>
+                <span>💎 Chúc đội ngũ S.Member luôn giữ vững tinh thần sáng tạo, kỷ luật và khát vọng phát triển, cùng nhau làm chủ công nghệ, bứt phá và lan tỏa cảm hứng mới.</span>
             </div>
             <div class="wish-item">
                 <img src="img/hoang.jpg" alt="Hoang">
-                <span>🎯 Chúc Sconnect trong những năm tới sẽ đạt được nhiều thành tựu mới và chinh phục những đỉnh cao mới</span>
+                <span>🎯 Chúc Sconnect đạt nhiều thành tựu đột phá trong hành trình hướng tới Tầm nhìn 2030 – trở thành lực lượng tiên phong trong ngành công nghiệp sáng tạo số.</span>
             </div>
             <div class="wish-item">
                 <img src="img/linh.jpg" alt="Linh">
-                <span>🌈 Chúc hệ sinh thái Sconnect tiếp tục 11 năm nữa kết nối thế giới bằng những giá trị tích cực</span>
+                <span>🌈 Chúc đại gia đình Sconnect luôn đoàn kết, vững vàng trước thử thách, tiếp tục kết nối thế giới bằng những giá trị tích cực và bền vững.</span>
             </div>
         </div>
 
@@ -2131,5 +2134,35 @@
             setTimeout(animateNumbers, 1000);
         });
     </script>
+
+    <!-- <div class="wishes-section" id="share-qr">
+      <h2 class="wishes-title">Quét QR để mở trang</h2>
+      <div id="qr" style="margin:16px auto; width:180px; height:180px;"></div>
+    </div> -->
+
+    <!-- QRCode library and init -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+      // Generate QR for fixed target URL
+      (function(){
+        var el = document.getElementById('qr');
+        var target = 'https://anhnt-sconnect.github.io/sconnect-sn11/';
+        function makeQR() {
+          new QRCode(el, { text: target, width: 180, height: 180, correctLevel: QRCode.CorrectLevel.M });
+        }
+        if (el && window.QRCode) {
+          makeQR();
+        } else {
+          // Retry after load if library not ready yet
+          window.addEventListener('load', function(){
+            el = document.getElementById('qr');
+            if (el && window.QRCode) {
+              makeQR();
+            }
+          });
+        }
+      })();
+    </script> -->
+
 </body>
 </html>
