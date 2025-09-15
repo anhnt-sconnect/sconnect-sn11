@@ -114,7 +114,7 @@
         .achievement-number {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #0FB239;
+            color: #7FD603;
             margin-bottom: 10px;
         }
 
@@ -580,7 +580,7 @@
         .timeline-item:nth-child(odd) {
             left: 0;
             padding-right: 40px;
-            text-align: right;
+            text-align: left;
         }
 
         .timeline-item:nth-child(even) {
@@ -1243,7 +1243,7 @@
         <div class="birthday-card">
             <div class="birthday-message">
                 Chúc mừng <span class="highlight">Sconnect</span> tròn 11 tuổi!<br>
-                Cảm ơn bạn đã <span class="highlight">"Connect the world"</span> và mang đến những giá trị tuyệt vời<br>
+                🌟 Cảm ơn bạn đã <span class="highlight">"Connect the world"</span>  và mang đến những giá trị <br>
                 cho cộng đồng sáng tạo Việt Nam và thế giới suốt 11 năm qua! 🌟
             </div>
         </div>
@@ -1281,13 +1281,13 @@
                 🌟 Chúc mừng 11 năm Sconnect đã trở thành biểu tượng của ngành công nghiệp sáng tạo Việt Nam
             </div>
             <div class="wish-item">
-                🚀 Chúc các sản phẩm như Wolfoo, Bearee đã chinh phục hàng triệu trái tim trên toàn thế giới
+                🚀 Chúc các sản phẩm của Sconnect chinh phục hàng triệu trái tim trên toàn thế giới
             </div>
             <div class="wish-item">
                 💎 Chúc đội ngũ Sconnect sau 11 năm vẫn luôn khỏe mạnh, hạnh phúc và tràn đầy cảm hứng sáng tạo
             </div>
             <div class="wish-item">
-                🎯 Chúc Sconnect trong 11 năm tới sẽ đạt được nhiều thành tựu mới và chinh phục những đỉnh cao mới
+                🎯 Chúc Sconnect trong những năm tới sẽ đạt được nhiều thành tựu mới và chinh phục những đỉnh cao mới
             </div>
             <div class="wish-item">
                 🌈 Chúc hệ sinh thái Sconnect tiếp tục 11 năm nữa kết nối thế giới bằng những giá trị tích cực
@@ -1496,120 +1496,239 @@
     </div>
 
     <script>
-        // Enhanced fireworks system
+        // Realistic canvas fireworks (gravity, trails, glow)
         const fireworkColors = ['#7FD603', '#0FB239', '#4FB01E', '#6BC502', '#2FA02B', '#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1'];
-        
-        function createEnhancedFirework(x, y) {
-            const firework = document.createElement('div');
-            firework.className = 'firework';
-            firework.style.left = x + 'px';
-            firework.style.top = y + 'px';
-            
+
+        // Create fullscreen canvas (injected, no HTML changes needed)
+        const fwCanvas = document.createElement('canvas');
+        fwCanvas.id = 'fireworks-canvas';
+        fwCanvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:10;';
+        document.body.appendChild(fwCanvas);
+        const ctx = fwCanvas.getContext('2d', { alpha: true });
+
+        function resizeCanvas() {
+            fwCanvas.width = window.innerWidth;
+            fwCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Particle with simple physics and trail
+        class Particle {
+            constructor(x, y, color, speed, angle) {
+                this.x = x;
+                this.y = y;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.alpha = 1;
+                this.fade = 0.015 + Math.random() * 0.02;
+                this.friction = 0.98;
+                this.gravity = 0.06;
+                this.size = 2 + Math.random() * 2;
+                this.color = color;
+                this.trail = [];
+            }
+            update() {
+                this.trail.push({ x: this.x, y: this.y });
+                if (this.trail.length > 5) this.trail.shift();
+
+                this.vx *= this.friction;
+                this.vy = this.vy * this.friction + this.gravity;
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= this.fade;
+                return this.alpha > 0;
+            }
+            draw(ctx) {
+                ctx.save();
+                ctx.globalCompositeOperation = 'lighter';
+                ctx.globalAlpha = Math.max(this.alpha, 0);
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Trail line
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 1;
+                ctx.globalAlpha = Math.max(this.alpha * 0.6, 0);
+                ctx.beginPath();
+                for (let i = this.trail.length - 1; i >= 0; i--) {
+                    const p = this.trail[i];
+                    if (i === this.trail.length - 1) ctx.moveTo(p.x, p.y);
+                    else ctx.lineTo(p.x, p.y);
+                }
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        // Rocket that flies up then explodes into particles
+        class Rocket {
+            constructor(x, y, targetY, color) {
+                this.x = x;
+                this.y = y;
+                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = -(7 + Math.random() * 2);
+                this.targetY = targetY || y - (window.innerHeight * 0.3 + Math.random() * window.innerHeight * 0.2);
+                this.exploded = false;
+                this.color = color;
+            }
+            update() {
+                // Slight gravity to reduce upward speed over time
+                this.vy += 0.04;
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.vy >= -0.2 || this.y <= this.targetY) this.exploded = true;
+                return !this.exploded;
+            }
+            draw(ctx) {
+                ctx.save();
+                ctx.globalCompositeOperation = 'lighter';
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = 0.9;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+                ctx.fill();
+                // Flame/trail
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 2;
+                ctx.globalAlpha = 0.6;
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x - this.vx * 3, this.y - this.vy * 3);
+                ctx.stroke();
+                ctx.restore();
+            }
+            explode(particles) {
+                const count = 60 + Math.floor(Math.random() * 40);
+                const shape = Math.random();
+                for (let i = 0; i < count; i++) {
+                    let angle = (i / count) * Math.PI * 2;
+                    let speed = 2 + Math.random() * 3.5;
+                    // Slight randomness in shape
+                    if (shape < 0.4) angle += (Math.random() - 0.5) * 0.3;
+                    const p = new Particle(this.x, this.y, this.color, speed, angle);
+                    particles.push(p);
+                }
+                // Extra white glitter
+                for (let i = 0; i < 20; i++) {
+                    const g = new Particle(this.x, this.y, '#ffffff', 1.5 + Math.random() * 2, Math.random() * Math.PI * 2);
+                    g.size = 1.2;
+                    g.fade = 0.03 + Math.random() * 0.03;
+                    particles.push(g);
+                }
+            }
+        }
+
+        const rockets = [];
+        const particles = [];
+        const petals = [];
+        const MAX_PETALS = 80;
+
+        class Petal {
+            constructor() {
+                this.x = Math.random() * fwCanvas.width;
+                this.y = -20 - Math.random() * 60;
+                this.vy = 0.8 + Math.random() * 1.2;
+                this.vx = (Math.random() - 0.5) * 0.6;
+                this.size = 6 + Math.random() * 8;
+                this.angle = Math.random() * Math.PI;
+                this.spin = (Math.random() - 0.5) * 0.02;
+                this.sway = 1.5 + Math.random() * 2.5;
+                this.swaySpeed = 0.01 + Math.random() * 0.02;
+                this.life = 0;
+            }
+            update() {
+                this.life += 1;
+                this.x += this.vx + Math.sin(this.life * this.swaySpeed) * this.sway * 0.1;
+                this.y += this.vy;
+                this.angle += this.spin;
+                return this.y < fwCanvas.height + 40;
+            }
+            draw(ctx) {
+                ctx.save();
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                const w = this.size;
+                const h = this.size * 1.2;
+                ctx.fillStyle = '#ffc0cb'; // light pink
+                ctx.strokeStyle = '#f8a5b6';
+                ctx.lineWidth = 0.5;
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.bezierCurveTo(w, -h * 0.2, w, -h, 0, -h);
+                ctx.bezierCurveTo(-w, -h, -w, -h * 0.2, 0, 0);
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        function spawnPetal() {
+            if (petals.length >= MAX_PETALS) return;
+            if (Math.random() < 0.6) petals.push(new Petal());
+        }
+
+        function launch(x, startY) {
             const color = fireworkColors[Math.floor(Math.random() * fireworkColors.length)];
-            firework.style.background = color;
-            firework.style.color = color;
-            
-            document.body.appendChild(firework);
-            
-            // Create particle burst
-            setTimeout(() => {
-                createParticleBurst(x, y, color);
-                createSparkles(x, y);
-            }, 300);
-            
-            setTimeout(() => {
-                firework.remove();
-            }, 2000);
+            const sx = typeof x === 'number' ? x : (window.innerWidth * 0.2 + Math.random() * window.innerWidth * 0.6);
+            const sy = typeof startY === 'number' ? startY : window.innerHeight + 10;
+            const r = new Rocket(sx, sy, window.innerHeight * (0.25 + Math.random() * 0.25), color);
+            rockets.push(r);
         }
-        
-        function createParticleBurst(x, y, color) {
-            const particleCount = 12;
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'firework-particle';
-                particle.style.left = x + 'px';
-                particle.style.top = y + 'px';
-                particle.style.background = color;
-                
-                const angle = (i / particleCount) * Math.PI * 2;
-                const distance = 50 + Math.random() * 100;
-                const dx = Math.cos(angle) * distance;
-                const dy = Math.sin(angle) * distance;
-                
-                particle.style.setProperty('--dx', dx + 'px');
-                particle.style.setProperty('--dy', dy + 'px');
-                particle.style.animation = `particle-burst 1.5s ease-out forwards`;
-                
-                document.body.appendChild(particle);
-                
-                setTimeout(() => {
-                    particle.remove();
-                }, 1500);
-            }
-        }
-        
-        function createSparkles(x, y) {
-            const sparkleCount = 8;
-            for (let i = 0; i < sparkleCount; i++) {
-                setTimeout(() => {
-                    const sparkle = document.createElement('div');
-                    sparkle.className = 'sparkle';
-                    sparkle.style.left = (x + (Math.random() - 0.5) * 100) + 'px';
-                    sparkle.style.top = (y + (Math.random() - 0.5) * 100) + 'px';
-                    
-                    document.body.appendChild(sparkle);
-                    
-                    setTimeout(() => {
-                        sparkle.remove();
-                    }, 1500);
-                }, i * 100);
-            }
-        }
-        
-        function randomFirework() {
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * (window.innerHeight * 0.7); // Upper 70% of screen
-            createEnhancedFirework(x, y);
-        }
-        
-        // Create automatic fireworks
-        setInterval(randomFirework, 3000);
-        
-        // Create fireworks on click
-        document.addEventListener('click', function(e) {
-            createEnhancedFirework(e.clientX, e.clientY);
-            
-            // Create additional random fireworks nearby
-            setTimeout(() => {
-                for (let i = 0; i < 2; i++) {
-                    const offsetX = e.clientX + (Math.random() - 0.5) * 200;
-                    const offsetY = e.clientY + (Math.random() - 0.5) * 200;
-                    createEnhancedFirework(offsetX, offsetY);
+
+        function loop() {
+            ctx.clearRect(0, 0, fwCanvas.width, fwCanvas.height);
+
+            for (let i = rockets.length - 1; i >= 0; i--) {
+                const r = rockets[i];
+                const flying = r.update();
+                r.draw(ctx);
+                if (!flying) {
+                    r.explode(particles);
+                    rockets.splice(i, 1);
                 }
-            }, 500);
+            }
+
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                const alive = p.update();
+                p.draw(ctx);
+                if (!alive) particles.splice(i, 1);
+            }
+
+            // Sakura petals
+            if (Math.random() < 0.4) spawnPetal();
+            for (let i = petals.length - 1; i >= 0; i--) {
+                const petal = petals[i];
+                const alive = petal.update();
+                petal.draw(ctx);
+                if (!alive) petals.splice(i, 1);
+            }
+
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+
+        // Automatic launches
+        setInterval(() => { if (rockets.length < 4) launch(); }, 1400);
+
+        // Click to launch near cursor
+        document.addEventListener('click', (e) => {
+            for (let i = 0; i < 2; i++) {
+                setTimeout(() => launch(e.clientX, window.innerHeight - 2), i * 120);
+            }
         });
-        
-        // Create special 11th birthday celebration burst on page load
-        window.addEventListener('load', function() {
+
+        // 11th birthday burst on load
+        window.addEventListener('load', () => {
             setTimeout(() => {
-                // Create 11 fireworks for 11th birthday
                 for (let i = 0; i < 11; i++) {
-                    setTimeout(() => {
-                        randomFirework();
-                    }, i * 200);
+                    setTimeout(() => launch(), i * 160);
                 }
-                
-                // Extra celebration burst after 3 seconds
-                setTimeout(() => {
-                    for (let i = 0; i < 6; i++) {
-                        setTimeout(() => {
-                            const x = Math.random() * window.innerWidth;
-                            const y = Math.random() * (window.innerHeight * 0.5);
-                            createEnhancedFirework(x, y);
-                        }, i * 150);
-                    }
-                }, 3000);
-            }, 2000);
+            }, 1000);
         });
 
         // Animate achievement numbers
