@@ -1533,6 +1533,16 @@
         @media (max-width: 480px) {
           .cake { transform: rotateX(10deg) scale(.88); }
         }
+
+        /* Mobile overflow fixes */
+        @media (max-width: 768px) {
+            .cake { width: 100%; max-width: 100%; }
+            .plate { width: min(300px, 90vw); }
+            .cake-wrap { overflow-x: hidden; }
+        }
+        @media (max-width: 480px) {
+            .plate { width: min(260px, 90vw); }
+        }
         </style>
 </head>
 <body>
