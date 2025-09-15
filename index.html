@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật Sconnect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://sconnect.com.vn/wp-content/uploads/2023/11/dd_0682177777777-scaled_batcheditor_fotor.webp') center center/cover no-repeat fixed;
+            background-color: #7FD603;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(127, 214, 3, 0.3);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #f0f0f0;
+            margin-bottom: 40px;
+        }
+
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 30px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.5s both;
+            backdrop-filter: blur(10px);
+        }
+
+        .birthday-message {
+            font-size: 1.8rem;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .highlight {
+            color: #7FD603;
+            font-weight: bold;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out;
+            backdrop-filter: blur(8px);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .achievement-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0FB239;
+            margin-bottom: 10px;
+        }
+
+        .achievement-text {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .celebration-section {
+            margin: 60px 0;
+            animation: fadeIn 2s ease-out 1s both;
+        }
+
+        .balloons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .balloon {
+            width: 60px;
+            height: 80px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(1) {
+            background: #7FD603;
+            animation-delay: 0s;
+        }
+
+        .balloon:nth-child(2) {
+            background: #6BC502;
+            animation-delay: 0.5s;
+        }
+
+        .balloon:nth-child(3) {
+            background: #4FB01E;
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(4) {
+            background: #2FA02B;
+            animation-delay: 1.5s;
+        }
+
+        .balloon:nth-child(5) {
+            background: #0FB239;
+            animation-delay: 2s;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100px;
+            background: #333;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #7FD603;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        .confetti:nth-child(odd) {
+            background: #0FB239;
+            animation-delay: 0.5s;
+        }
+
+        .confetti:nth-child(3n) {
+            background: #4FB01E;
+            animation-delay: 1s;
+        }
+
+        .wishes-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            animation: fadeInUp 1s ease-out 1.5s both;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .wishes-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .wish-item {
+            font-size: 1.3rem;
+            color: #555;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(127, 214, 3, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #7FD603;
+        }
+
+        .footer {
+            margin-top: 60px;
+            color: #fff;
+            font-size: 1.1rem;
+            animation: fadeIn 2s ease-out 2s both;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Enhanced Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header {
+                margin-bottom: 30px;
+            }
+            
+            .logo {
+                width: 150px;
+                margin-bottom: 20px;
+            }
+            
+            .main-title {
+                font-size: 2.2rem;
+                white-space: normal;
+                line-height: 1.2;
+                margin-bottom: 15px;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+                line-height: 1.4;
+            }
+            
+            .birthday-card {
+                padding: 25px 15px;
+                margin: 20px 0;
+                border-radius: 15px;
+            }
+            
+            .birthday-message {
+                font-size: 1.3rem;
+                line-height: 1.5;
+                margin-bottom: 25px;
+            }
+            
+            .achievements {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 30px 0;
+            }
+            
+            .achievement-card {
+                padding: 25px 20px;
+            }
+            
+            .achievement-number {
+                font-size: 2rem;
+            }
+            
+            .achievement-text {
+                font-size: 1rem;
+            }
+            
+            .balloons {
+                gap: 15px;
+                margin: 30px 0;
+            }
+            
+            .balloon {
+                width: 45px;
+                height: 60px;
+            }
+            
+            .balloon::after {
+                height: 60px;
+            }
+            
+            .wishes-section {
+                padding: 25px 15px;
+                margin: 30px 0;
+            }
+            
+            .wishes-title {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            
+            .wish-item {
+                font-size: 1.1rem;
+                padding: 12px;
+                margin: 15px 0;
+            }
+            
+            .celebration-section {
+                margin: 40px 0;
+            }
+            
+            .footer {
+                margin-top: 40px;
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+        }
+
+        /* Extra small devices (phones, 480px and down) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .main-title {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+            
+            .birthday-card {
+                padding: 20px 12px;
+                margin: 15px 0;
+            }
+            
+            .birthday-message {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+            
+            .achievement-card {
+                padding: 20px 15px;
+            }
+            
+            .achievement-number {
+                font-size: 1.8rem;
+            }
+            
+            .achievement-text {
+                font-size: 0.9rem;
+            }
+            
+            .balloons {
+                gap: 10px;
+                margin: 25px 0;
+            }
+            
+            .balloon {
+                width: 35px;
+                height: 45px;
+            }
+            
+            .balloon::after {
+                height: 40px;
+            }
+            
+            .wishes-section {
+                padding: 20px 12px;
+            }
+            
+            .wishes-title {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .wish-item {
+                font-size: 1rem;
+                padding: 10px;
+                margin: 12px 0;
+            }
+        }
+
+        /* Enhanced Fireworks effect */
+        .firework {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            animation: firework 2s ease-out forwards;
+            pointer-events: none;
+        }
+
+        .firework-particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @keyframes firework {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+                box-shadow: 0 0 10px currentColor;
+            }
+            50% {
+                transform: scale(15) rotate(180deg);
+                opacity: 0.8;
+                box-shadow: 0 0 30px currentColor;
+            }
+            100% {
+                transform: scale(30) rotate(360deg);
+                opacity: 0;
+                box-shadow: 0 0 50px currentColor;
+            }
+        }
+
+        @keyframes particle-burst {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--dx), var(--dy)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Sparkle effect */
+        .sparkle {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: sparkle 1.5s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+                box-shadow: 0 0 5px #fff;
+            }
+            50% {
+                transform: scale(1) rotate(180deg);
+                opacity: 0.8;
+                box-shadow: 0 0 15px #fff;
+            }
+            100% {
+                transform: scale(0) rotate(360deg);
+                opacity: 0;
+                box-shadow: 0 0 25px #fff;
+            }
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 50px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #7FD603, #0FB239);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 40px 0;
+            width: 50%;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+            text-align: left;
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #7FD603;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(127, 214, 3, 0.3);
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -70px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -70px;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid rgba(127, 214, 3, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: #7FD603;
+        }
+
+        .timeline-content h3 {
+            color: #0FB239;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .timeline-content p {
+            color: #555;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        .timeline-content strong {
+            color: #7FD603;
+        }
+
+        /* Enhanced Responsive Timeline */
+        @media (max-width: 768px) {
+            .timeline-section {
+                padding: 30px 15px;
+                margin: 30px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px !important;
+                padding-right: 15px !important;
+                text-align: left !important;
+                margin: 30px 0;
+            }
+            
+            .timeline-year {
+                left: -15px !important;
+                right: auto !important;
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+            
+            .timeline-content {
+                padding: 20px 15px;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.2rem;
+                margin-bottom: 12px;
+            }
+            
+            .timeline-content p {
+                font-size: 0.9rem;
+                margin: 6px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timeline-section {
+                padding: 25px 10px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .section-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+            }
+            
+            .timeline-item {
+                padding-left: 50px !important;
+                padding-right: 10px !important;
+                margin: 25px 0;
+            }
+            
+            .timeline-year {
+                left: -12px !important;
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+            
+            .timeline-content {
+                padding: 15px 12px;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+            
+            .timeline-content p {
+                font-size: 0.85rem;
+                margin: 5px 0;
+            }
+        }
+
+        /* Products Section */
+        .products-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 50px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid rgba(127, 214, 3, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #7FD603;
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            color: #0FB239;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .product-card p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .product-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .product-stats span {
+            background: rgba(127, 214, 3, 0.1);
+            color: #0FB239;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Values Section */
+        .values-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 50px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out 1.4s both;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, rgba(127, 214, 3, 0.1), rgba(15, 178, 57, 0.1));
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid rgba(127, 214, 3, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            color: #0FB239;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .value-card p {
+            color: #555;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .value-card strong {
+            color: #7FD603;
+            font-size: 1.1rem;
+        }
+
+        /* Gratitude Section */
+        .gratitude-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            padding: 50px;
+            margin: 50px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out 1.6s both;
+        }
+
+        .gratitude-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .gratitude-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid rgba(255, 107, 107, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gratitude-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: #FF6B6B;
+        }
+
+        .gratitude-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .gratitude-card h3 {
+            color: #FF6B6B;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .gratitude-card p {
+            color: #555;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .gratitude-card strong {
+            color: #7FD603;
+        }
+
+        .gratitude-card em {
+            color: #0FB239;
+            font-style: italic;
+        }
+
+        /* Enhanced Responsive for new sections */
+        @media (max-width: 768px) {
+            .products-section,
+            .values-section,
+            .gratitude-section {
+                padding: 30px 15px;
+                margin: 30px 0;
+            }
+            
+            .products-grid,
+            .values-grid,
+            .gratitude-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 30px;
+            }
+            
+            .product-card,
+            .value-card,
+            .gratitude-card {
+                padding: 25px 20px;
+            }
+            
+            .product-icon,
+            .value-icon,
+            .gratitude-icon {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+            
+            .product-card h3,
+            .value-card h3,
+            .gratitude-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 12px;
+            }
+            
+            .product-card p,
+            .value-card p,
+            .gratitude-card p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin: 8px 0;
+            }
+            
+            .product-stats span {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-section,
+            .values-section,
+            .gratitude-section {
+                padding: 25px 10px;
+                margin: 25px 0;
+            }
+            
+            .products-grid,
+            .values-grid,
+            .gratitude-grid {
+                gap: 15px;
+                margin-top: 25px;
+            }
+            
+            .product-card,
+            .value-card,
+            .gratitude-card {
+                padding: 20px 15px;
+            }
+            
+            .product-icon,
+            .value-icon,
+            .gratitude-icon {
+                font-size: 2rem;
+                margin-bottom: 12px;
+            }
+            
+            .product-card h3,
+            .value-card h3,
+            .gratitude-card h3 {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+            }
+            
+            .product-card p,
+            .value-card p,
+            .gratitude-card p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+                margin: 6px 0;
+            }
+            
+            .product-stats {
+                gap: 6px;
+            }
+            
+            .product-stats span {
+                font-size: 0.8rem;
+                padding: 5px 10px;
+            }
+            
+            .value-card strong {
+                font-size: 1rem;
+            }
+        }
+
+        /* Mobile-specific optimizations */
+        @media (max-width: 768px) {
+            /* Optimize background for mobile */
+            body {
+                background-attachment: scroll;
+            }
+            
+            /* Touch-friendly hover effects */
+            .achievement-card:hover,
+            .product-card:hover,
+            .value-card:hover,
+            .gratitude-card:hover,
+            .timeline-content:hover {
+                transform: none;
+            }
+            
+            .achievement-card:active,
+            .product-card:active,
+            .value-card:active,
+            .gratitude-card:active,
+            .timeline-content:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+            
+            /* Improve text readability */
+            .birthday-message,
+            .wish-item,
+            .timeline-content p,
+            .product-card p,
+            .value-card p,
+            .gratitude-card p {
+                text-align: left;
+            }
+            
+            /* Optimize confetti for mobile performance */
+            .confetti {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Further optimize for very small screens */
+            body {
+                background-size: cover;
+                background-position: center top;
+            }
+            
+            /* Reduce animations for better performance */
+            .firework,
+            .sparkle {
+                animation-duration: 1s;
+            }
+            
+            /* Improve touch targets */
+            .balloon {
+                margin: 0 5px;
+            }
+            
+            /* Optimize spacing */
+            .header {
+                margin-bottom: 20px;
+            }
+            
+            .celebration-section {
+                margin: 30px 0;
+            }
+        }
+
+        /* Signature Section */
+        .signature-section {
+            margin-top: 40px;
+            padding: 30px 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 2s ease-out 2.5s both;
+        }
+
+        .signature-divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #7FD603, transparent);
+            margin: 0 auto 20px;
+            border-radius: 1px;
+        }
+
+        .signature-text {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .signature-team {
+            margin: 15px 0;
+        }
+
+        .signature-highlight {
+            background: linear-gradient(135deg, #7FD603, #0FB239);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(127, 214, 3, 0.3);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            display: inline-block;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .signature-subtitle {
+            color: #f0f0f0;
+            font-size: 0.95rem;
+            margin: 12px 0 8px;
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .signature-date {
+            color: #e0e0e0;
+            font-size: 0.85rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 5px 15px rgba(127, 214, 3, 0.3);
+            }
+            to {
+                box-shadow: 0 5px 25px rgba(127, 214, 3, 0.6);
+            }
+        }
+
+        /* Responsive for signature */
+        @media (max-width: 768px) {
+            .signature-section {
+                margin-top: 30px;
+                padding: 25px 15px;
+            }
+            
+            .signature-text {
+                font-size: 0.9rem;
+            }
+            
+            .signature-highlight {
+                font-size: 1rem;
+                padding: 6px 16px;
+            }
+            
+            .signature-subtitle {
+                font-size: 0.85rem;
+            }
+            
+            .signature-date {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .signature-section {
+                margin-top: 25px;
+                padding: 20px 12px;
+            }
+            
+            .signature-divider {
+                width: 80px;
+                margin-bottom: 15px;
+            }
+            
+            .signature-text {
+                font-size: 0.85rem;
+            }
+            
+            .signature-highlight {
+                font-size: 0.95rem;
+                padding: 5px 14px;
+            }
+            
+            .signature-subtitle {
+                font-size: 0.8rem;
+                margin: 10px 0 6px;
+            }
+            
+            .signature-date {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti elements -->
+    <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="confetti" style="left: 20%; animation-delay: 0.2s;"></div>
+    <div class="confetti" style="left: 30%; animation-delay: 0.4s;"></div>
+    <div class="confetti" style="left: 40%; animation-delay: 0.6s;"></div>
+    <div class="confetti" style="left: 50%; animation-delay: 0.8s;"></div>
+    <div class="confetti" style="left: 60%; animation-delay: 1s;"></div>
+    <div class="confetti" style="left: 70%; animation-delay: 1.2s;"></div>
+    <div class="confetti" style="left: 80%; animation-delay: 1.4s;"></div>
+    <div class="confetti" style="left: 90%; animation-delay: 1.6s;"></div>
+
+    <div class="container">
+        <div class="header">
+            <img src="https://sconnect.com.vn/wp-content/themes/sconnect/assets/images/trắngSCN-02 (2).png" alt="Sconnect Logo" class="logo" style="width: 200px; height: auto; margin: 0 auto 30px; display: block; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));" />
+            <h2 class="main-title">🎉 CHÚC MỪNG SINH NHẬT LẦN THỨ 11 🎉</h2>
+            <p class="subtitle">Hệ sinh thái Sáng tạo Sconnect - 11 năm kết nối thế giới</p>
+        </div>
+
+        <div class="birthday-card">
+            <div class="birthday-message">
+                Chúc mừng <span class="highlight">Sconnect</span> tròn 11 tuổi!<br>
+                Cảm ơn bạn đã <span class="highlight">"Connect the world"</span> và mang đến những giá trị tuyệt vời<br>
+                cho cộng đồng sáng tạo Việt Nam và thế giới suốt 11 năm qua! 🌟
+            </div>
+        </div>
+
+        <div class="balloons">
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+            <div class="balloon"></div>
+        </div>
+
+        <div class="achievements">
+            <div class="achievement-card">
+                <div class="achievement-number">+4.25 tỷ</div>
+                <div class="achievement-text">truy cập hằng tháng trên Youtube & Facebook</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-number">+185 triệu</div>
+                <div class="achievement-text">lượt đăng ký và theo dõi trên Youtube & Facebook</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-number">3</div>
+                <div class="achievement-text">Nút Kim Cương Youtube</div>
+            </div>
+            <div class="achievement-card">
+                <div class="achievement-number">+400</div>
+                <div class="achievement-text">Nút Vàng, nút Bạc Youtube</div>
+            </div>
+        </div>
+
+        <div class="wishes-section">
+            <h2 class="wishes-title">🎂 Lời chúc sinh nhật 🎂</h2>
+            <div class="wish-item">
+                🌟 Chúc mừng 11 năm Sconnect đã trở thành biểu tượng của ngành công nghiệp sáng tạo Việt Nam
+            </div>
+            <div class="wish-item">
+                🚀 Chúc các sản phẩm như Wolfoo, Bearee đã chinh phục hàng triệu trái tim trên toàn thế giới
+            </div>
+            <div class="wish-item">
+                💎 Chúc đội ngũ Sconnect sau 11 năm vẫn luôn khỏe mạnh, hạnh phúc và tràn đầy cảm hứng sáng tạo
+            </div>
+            <div class="wish-item">
+                🎯 Chúc Sconnect trong 11 năm tới sẽ đạt được nhiều thành tựu mới và chinh phục những đỉnh cao mới
+            </div>
+            <div class="wish-item">
+                🌈 Chúc hệ sinh thái Sconnect tiếp tục 11 năm nữa kết nối thế giới bằng những giá trị tích cực
+            </div>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="timeline-section">
+            <h2 class="section-title">🚀 Hành trình 11 năm phát triển 🚀</h2>
+            <p class="section-subtitle">Từ 8 nhân sự đến gần 1.000 người - Từ Việt Nam vươn ra toàn cầu</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2014</div>
+                    <div class="timeline-content">
+                        <h3>🌱 Bước đầu phát triển</h3>
+                        <p><strong>17/9/2014:</strong> Thành lập với 8 nhân sự</p>
+                        <p>• Sản xuất nội dung biên tập video trên YouTube</p>
+                        <p>• Đạt 100 triệu views/tháng</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2016</div>
+                    <div class="timeline-content">
+                        <h3>📈 Mở rộng quy mô</h3>
+                        <p>• Tăng lên 64 nhân sự</p>
+                        <p>• Sản xuất hoạt hình 2D và stop motion</p>
+                        <p>• Đạt 300 triệu views/tháng</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-content">
+                        <h3>🎯 Bứt phá vươn xa</h3>
+                        <p>• Tăng lên 400 nhân sự</p>
+                        <p>• <strong>Wolfoo</strong> trở thành hiện tượng toàn cầu</p>
+                        <p>• Đạt 2.5 tỷ views/tháng</p>
+                        <p>• Top 1 công ty Việt Nam sáng tạo nội dung YouTube</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2021-2022</div>
+                    <div class="timeline-content">
+                        <h3>🏗️ Phá bỏ giới hạn</h3>
+                        <p>• Thành lập Học viện đào tạo hoạt hình Quốc tế</p>
+                        <p>• Ra mắt <strong>Wolfoo Game</strong> - 3 triệu lượt tải</p>
+                        <p>• Khai trương <strong>Wolfoo City</strong> đầu tiên tại Việt Nam</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023-2024</div>
+                    <div class="timeline-content">
+                        <h3>🌍 Kết nối toàn cầu</h3>
+                        <p>• Phát triển gần 1.000 nhân sự</p>
+                        <p>• Mở rộng ra Mỹ, Séc, Anh, Hungary</p>
+                        <p>• 18 bộ nhân vật hoạt hình bản quyền</p>
+                        <p>• 50.000 video nội dung, 20 ngôn ngữ</p>
+                        <p>• 3 Kỷ lục Việt Nam được xác lập</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2024-2030</div>
+                    <div class="timeline-content">
+                        <h3>🎊 Tầm nhìn mới</h3>
+                        <p>• <strong>Chiến lược Tập đoàn Sconnect 2024-2030</strong></p>
+                        <p>• 6 lĩnh vực kinh doanh và đầu tư</p>
+                        <p>• Trở thành doanh nghiệp "Sáng tạo toàn cầu"</p>
+                        <p>• Chinh phục hàng tỷ khán giả khắp thế giới</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="products-section">
+            <h2 class="section-title">🌟 Sản phẩm nổi bật 🌟</h2>
+            <p class="section-subtitle">18 bộ nhân vật hoạt hình - 50.000 video nội dung - 20 ngôn ngữ</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">🐺</div>
+                    <h3>Wolfoo Family</h3>
+                    <p>Hiện tượng toàn cầu với hàng tỷ lượt xem. Chinh phục khán giả từ Mỹ, châu Âu đến châu Á.</p>
+                    <div class="product-stats">
+                        <span>🎮 Wolfoo Game: 3M+ lượt tải</span>
+                        <span>🏢 Wolfoo City: Khu vui chơi đầu tiên</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-icon">🎨</div>
+                    <h3>Bearee & Friends</h3>
+                    <p>Thế giới sáng tạo đầy màu sắc, mang đến niềm vui và bài học ý nghĩa cho trẻ em.</p>
+                    <div class="product-stats">
+                        <span>🌍 Phát hành toàn cầu</span>
+                        <span>📚 Nội dung giáo dục</span>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-icon">🎭</div>
+                    <h3>18 Nhân vật khác</h3>
+                    <p>Luka, Tiny-Claymixer, Max's & Puppy Dog, WOA Doodles 2D và nhiều nhân vật độc đáo khác.</p>
+                    <div class="product-stats">
+                        <span>🎬 Đa dạng thể loại</span>
+                        <span>🌟 Sáng tạo không ngừng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Values Section -->
+        <div class="values-section">
+            <h2 class="section-title">💎 Giá trị cốt lõi & Sứ mệnh 💎</h2>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Sứ mệnh</h3>
+                    <p><strong>"Kết nối tạo giá trị trên toàn thế giới"</strong></p>
+                    <p>Trở thành "TRẠM KẾT NỐI" nguồn lực tạo giá trị và phát triển cộng đồng sáng tạo toàn cầu.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🌟</div>
+                    <h3>Tầm nhìn 2030</h3>
+                    <p><strong>"Doanh nghiệp SÁNG TẠO TOÀN CẦU"</strong></p>
+                    <p>Sáng tạo nhân vật hoạt hình, sản xuất phim và nội dung số chinh phục hàng tỷ khán giả khắp thế giới.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3>Khát vọng</h3>
+                    <p><strong>"Mang trí tuệ và sáng tạo Việt lan tỏa toàn cầu"</strong></p>
+                    <p>Trở thành doanh nghiệp Việt "TIÊN PHONG ĐỊNH VỊ" trên "bản đồ" thế giới về sản xuất phim hoạt hình.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gratitude Section -->
+        <div class="gratitude-section">
+            <h2 class="section-title">🙏 Lời tri ân 🙏</h2>
+            <p class="section-subtitle">Cảm ơn những người đã đồng hành cùng Sconnect trong 11 năm qua</p>
+            
+            <div class="gratitude-grid">
+                <div class="gratitude-card">
+                    <div class="gratitude-icon">👥</div>
+                    <h3>Đội ngũ S.Member</h3>
+                    <p>Cảm ơn gần <strong>1.000 S.Member</strong> tài năng đã cùng nhau xây dựng và phát triển Sconnect từ 8 người ban đầu.</p>
+                    <p>Với 6 giá trị cốt lõi: <em>Sáng tạo, Kỷ luật, Khát vọng phát triển, Chính trực, Hợp tác, Tư duy giải pháp.</em></p>
+                </div>
+                
+                <div class="gratitude-card">
+                    <div class="gratitude-icon">❤️</div>
+                    <h3>Khán giả toàn cầu</h3>
+                    <p>Cảm ơn <strong>hàng tỷ khán giả</strong> trên khắp thế giới đã yêu thương và ủng hộ các sản phẩm của Sconnect.</p>
+                    <p>Từ Việt Nam, Mỹ, châu Âu đến châu Á - các bạn là động lực để chúng tôi không ngừng sáng tạo.</p>
+                </div>
+                
+                <div class="gratitude-card">
+                    <div class="gratitude-icon">🤝</div>
+                    <h3>Đối tác & Nhà đầu tư</h3>
+                    <p>Cảm ơn các <strong>đối tác chiến lược</strong> tại Mỹ, Séc, Anh, Hungary và các nhà đầu tư đã tin tưởng và đồng hành.</p>
+                    <p>Cùng nhau xây dựng hệ sinh thái sáng tạo vươn tầm quốc tế.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="celebration-section">
+            <h2 style="color: #fff; font-size: 2rem; margin-bottom: 20px;">
+                🎊 11 năm - Cùng nhau tạo nên những kỷ niệm đẹp! 🎊
+            </h2>
+            <p style="color: #f0f0f0; font-size: 1.2rem; margin-top: 15px;">
+                Từ 2014 đến 2025 - Hành trình 11 năm kết nối thế giới qua sự sáng tạo
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>💝 Với tình cảm và lời chúc tốt đẹp nhất 💝</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                "Connect the world" - Kết nối thế giới bằng sự sáng tạo
+            </p>
+        </div>
+
+        <!-- Signature Section -->
+        <div class="signature-section">
+            <div class="signature-divider"></div>
+            <p class="signature-text">
+                🎨 <strong>Được thiết kế và phát triển bởi</strong> 🎨
+            </p>
+            <p class="signature-team">
+                <span class="signature-highlight">Ban Công Nghệ và Giải Pháp</span>
+            </p>
+            <p class="signature-subtitle">
+                💻 Tặng công ty nhân dịp sinh nhật 11 tuổi 💻
+            </p>
+            <p class="signature-date">
+                📅 Ngày 17/9/2025
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced fireworks system
+        const fireworkColors = ['#7FD603', '#0FB239', '#4FB01E', '#6BC502', '#2FA02B', '#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1'];
+        
+        function createEnhancedFirework(x, y) {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = x + 'px';
+            firework.style.top = y + 'px';
+            
+            const color = fireworkColors[Math.floor(Math.random() * fireworkColors.length)];
+            firework.style.background = color;
+            firework.style.color = color;
+            
+            document.body.appendChild(firework);
+            
+            // Create particle burst
+            setTimeout(() => {
+                createParticleBurst(x, y, color);
+                createSparkles(x, y);
+            }, 300);
+            
+            setTimeout(() => {
+                firework.remove();
+            }, 2000);
+        }
+        
+        function createParticleBurst(x, y, color) {
+            const particleCount = 12;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'firework-particle';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.background = color;
+                
+                const angle = (i / particleCount) * Math.PI * 2;
+                const distance = 50 + Math.random() * 100;
+                const dx = Math.cos(angle) * distance;
+                const dy = Math.sin(angle) * distance;
+                
+                particle.style.setProperty('--dx', dx + 'px');
+                particle.style.setProperty('--dy', dy + 'px');
+                particle.style.animation = `particle-burst 1.5s ease-out forwards`;
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 1500);
+            }
+        }
+        
+        function createSparkles(x, y) {
+            const sparkleCount = 8;
+            for (let i = 0; i < sparkleCount; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = (x + (Math.random() - 0.5) * 100) + 'px';
+                    sparkle.style.top = (y + (Math.random() - 0.5) * 100) + 'px';
+                    
+                    document.body.appendChild(sparkle);
+                    
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 1500);
+                }, i * 100);
+            }
+        }
+        
+        function randomFirework() {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * (window.innerHeight * 0.7); // Upper 70% of screen
+            createEnhancedFirework(x, y);
+        }
+        
+        // Create automatic fireworks
+        setInterval(randomFirework, 3000);
+        
+        // Create fireworks on click
+        document.addEventListener('click', function(e) {
+            createEnhancedFirework(e.clientX, e.clientY);
+            
+            // Create additional random fireworks nearby
+            setTimeout(() => {
+                for (let i = 0; i < 2; i++) {
+                    const offsetX = e.clientX + (Math.random() - 0.5) * 200;
+                    const offsetY = e.clientY + (Math.random() - 0.5) * 200;
+                    createEnhancedFirework(offsetX, offsetY);
+                }
+            }, 500);
+        });
+        
+        // Create special 11th birthday celebration burst on page load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                // Create 11 fireworks for 11th birthday
+                for (let i = 0; i < 11; i++) {
+                    setTimeout(() => {
+                        randomFirework();
+                    }, i * 200);
+                }
+                
+                // Extra celebration burst after 3 seconds
+                setTimeout(() => {
+                    for (let i = 0; i < 6; i++) {
+                        setTimeout(() => {
+                            const x = Math.random() * window.innerWidth;
+                            const y = Math.random() * (window.innerHeight * 0.5);
+                            createEnhancedFirework(x, y);
+                        }, i * 150);
+                    }
+                }, 3000);
+            }, 2000);
+        });
+
+        // Animate achievement numbers
+        function animateNumbers() {
+            const numbers = document.querySelectorAll('.achievement-number');
+            numbers.forEach(number => {
+                const target = number.textContent;
+                const isNumber = target.match(/[\d.]+/);
+                if (isNumber) {
+                    const targetNum = parseFloat(isNumber[0]);
+                    const suffix = target.replace(isNumber[0], '');
+                    let current = 0;
+                    const increment = targetNum / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= targetNum) {
+                            current = targetNum;
+                            clearInterval(timer);
+                        }
+                        number.textContent = (targetNum >= 1 ? current.toFixed(targetNum >= 100 ? 0 : 2) : current.toFixed(2)) + suffix;
+                    }, 50);
+                }
+            });
+        }
+
+        // Start number animation when page loads
+        window.addEventListener('load', () => {
+            setTimeout(animateNumbers, 1000);
+        });
+    </script>
+</body>
+</html>
