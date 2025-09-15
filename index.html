@@ -1220,6 +1220,132 @@
             }
         }
     </style>
+        <style>
+            /* Birthday Cake Styles */
+            .cake-wrap {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                margin: 80px 0 10px;
+            }
+            .cake {
+                position: relative;
+                width: 340px;
+                height: 260px; /* includes layers + candles area */
+                margin: 0 auto;
+            }
+            .plate {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0;
+                width: 380px;
+                height: 24px;
+                background: radial-gradient(ellipse at center, #f7f7f7 0%, #e6e6e6 60%, #d0d0d0 100%);
+                border-radius: 12px;
+                box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+            }
+            .layer {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                background: linear-gradient(#ffead1, #ffd7a8);
+                border-radius: 14px;
+                box-shadow: inset 0 8px 16px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.15);
+                overflow: visible;
+            }
+            .layer1 {
+                width: 340px;
+                height: 120px;
+                bottom: 26px;
+            }
+            .layer2 {
+                width: 260px;
+                height: 90px;
+                bottom: 120px;
+            }
+            .layer3 {
+                width: 180px;
+                height: 60px;
+                bottom: 190px;
+            }
+            .icing {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: -16px;
+                height: 22px;
+                background: #ffffff;
+                border-radius: 12px;
+                box-shadow: inset 0 4px 8px rgba(0,0,0,0.08);
+            }
+            .drip {
+                position: absolute;
+                top: -4px;
+                width: 16px;
+                height: 34px;
+                background: #ffffff;
+                border-radius: 10px;
+                box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+            }
+            .drip.d1 { left: 25%; height: 32px; }
+            .drip.d2 { left: 50%; height: 38px; }
+            .drip.d3 { left: 72%; height: 28px; }
+
+            .candle {
+                position: absolute;
+                width: 14px;
+                height: 48px;
+                bottom: 250px; /* sits on top of layer3 */
+                background: repeating-linear-gradient(-45deg, #ffd6d6 0, #ffd6d6 6px, #ff9ea0 6px, #ff9ea0 12px);
+                border-radius: 6px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            }
+            .candle[data-candle="1"] { left: calc(50% - 80px); }
+            .candle[data-candle="2"] { left: calc(50% - 7px); }
+            .candle[data-candle="3"] { left: calc(50% + 66px); }
+
+            .wick {
+                position: absolute;
+                top: -6px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 8px;
+                background: #333;
+                border-radius: 1px;
+            }
+            .flame {
+                position: absolute;
+                top: -22px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 12px;
+                height: 18px;
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+                background: radial-gradient(circle at 50% 60%, #fff6a8 0%, #ffd56a 40%, #ff9a3c 70%, rgba(255,154,60,0) 72%);
+                box-shadow: 0 0 14px rgba(255,180,60,0.9), 0 0 24px rgba(255,200,80,0.6);
+                animation: flicker 0.12s infinite alternate;
+                transform-origin: 50% 100%;
+            }
+            @keyframes flicker {
+                from { transform: translateX(-50%) scale(1) rotate(-2deg); opacity: 0.95; }
+                to   { transform: translateX(-50%) scale(1.08) rotate(2deg); opacity: 1; }
+            }
+
+            /* Responsive: keep cake big but fit smaller screens */
+            @media (max-width: 768px) {
+                .cake { width: 280px; height: 230px; }
+                .plate { width: 300px; }
+                .layer1 { width: 280px; height: 100px; bottom: 24px; }
+                .layer2 { width: 220px; height: 80px; bottom: 108px; }
+                .layer3 { width: 160px; height: 56px; bottom: 172px; }
+                .candle { bottom: 222px; height: 44px; }
+                .candle[data-candle="1"] { left: calc(50% - 64px); }
+                .candle[data-candle="2"] { left: calc(50% - 7px); }
+                .candle[data-candle="3"] { left: calc(50% + 50px); }
+            }
+        </style>
 </head>
 <body>
     <!-- Confetti elements -->
@@ -1240,11 +1366,43 @@
             <p class="subtitle">Hệ sinh thái Sáng tạo Sconnect - 11 năm kết nối thế giới</p>
         </div>
 
+
         <div class="birthday-card">
             <div class="birthday-message">
                 Chúc mừng <span class="highlight">Sconnect</span> tròn 11 tuổi!<br>
                 🌟 Cảm ơn bạn đã <span class="highlight">"Connect the world"</span>  và mang đến những giá trị <br>
                 cho cộng đồng sáng tạo Việt Nam và thế giới suốt 11 năm qua! 🌟
+            </div>
+
+            <!-- Big Birthday Cake directly under the message -->
+            <div class="cake-wrap">
+                <div class="cake" id="birthday-cake">
+                    <div class="plate"></div>
+                    <div class="layer layer1">
+                        <div class="icing"></div>
+                        <div class="drip d1"></div>
+                        <div class="drip d2"></div>
+                        <div class="drip d3"></div>
+                    </div>
+                    <div class="layer layer2">
+                        <div class="icing"></div>
+                    </div>
+                    <div class="layer layer3">
+                        <div class="icing"></div>
+                    </div>
+                    <div class="candle" data-candle="1">
+                        <div class="wick"></div>
+                        <div class="flame"></div>
+                    </div>
+                    <div class="candle" data-candle="2">
+                        <div class="wick"></div>
+                        <div class="flame"></div>
+                    </div>
+                    <div class="candle" data-candle="3">
+                        <div class="wick"></div>
+                        <div class="flame"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1721,6 +1879,30 @@
                 setTimeout(() => launch(e.clientX, window.innerHeight - 2), i * 120);
             }
         });
+
+        // Emit small sparks from candle flames
+        function getCandleTips() {
+            const tips = [];
+            document.querySelectorAll('.candle').forEach(c => {
+                const rect = c.getBoundingClientRect();
+                // Candle top center coordinates
+                tips.push({ x: rect.left + rect.width / 2, y: rect.top - 6 });
+            });
+            return tips;
+        }
+        setInterval(() => {
+            const tips = getCandleTips();
+            tips.forEach(t => {
+                // spawn a few gentle glitter particles upward
+                for (let i = 0; i < 2; i++) {
+                    const p = new Particle(t.x, t.y, '#ffd27d', 1 + Math.random()*1.2, (-Math.PI/2) + (Math.random()-0.5)*0.8);
+                    p.gravity = -0.02; // float up a bit
+                    p.fade = 0.03 + Math.random()*0.02;
+                    p.size = 1.5;
+                    particles.push(p);
+                }
+            });
+        }, 220);
 
         // 11th birthday burst on load
         window.addEventListener('load', () => {
