@@ -53,9 +53,9 @@
         }
 
         .main-title {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,1);
             margin-bottom: 20px;
             font-weight: bold;
             white-space: nowrap;
@@ -65,6 +65,7 @@
             font-size: 1.5rem;
             color: #f0f0f0;
             margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,1);
         }
 
         .birthday-card {
@@ -222,6 +223,18 @@
             background: rgba(127, 214, 3, 0.1);
             border-radius: 10px;
             border-left: 4px solid #7FD603;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .wish-item img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            flex-shrink: 0;
         }
 
         .footer {
@@ -1257,12 +1270,12 @@
             .layer1 {
                 width: 340px;
                 height: 120px;
-                bottom: 26px;
+                bottom: 20px;
             }
             .layer2 {
                 width: 260px;
                 height: 90px;
-                bottom: 120px;
+                bottom: 125px;
             }
             .layer3 {
                 width: 180px;
@@ -1361,8 +1374,8 @@
 
     <div class="container">
         <div class="header">
-            <img src="https://sconnect.com.vn/wp-content/themes/sconnect/assets/images/trắngSCN-02 (2).png" alt="Sconnect Logo" class="logo" style="width: 200px; height: auto; margin: 0 auto 30px; display: block; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));" />
-            <h2 class="main-title">🎉 CHÚC MỪNG SINH NHẬT LẦN THỨ 11 🎉</h2>
+            <img src="https://sconnect.com.vn/wp-content/themes/sconnect/assets/images/trắngSCN-02 (2).png" alt="Sconnect Logo" class="logo" style="width: 300px; height: auto; margin: 0 auto 30px; display: block; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));" />
+            <h2 class="main-title">🎉 CHÚC MỪNG SINH NHẬT <span style="color: #19e900;">SCONNECT</span> LẦN THỨ 11 🎉</h2>
             <p class="subtitle">Hệ sinh thái Sáng tạo Sconnect - 11 năm kết nối thế giới</p>
         </div>
 
@@ -1370,8 +1383,8 @@
         <div class="birthday-card">
             <div class="birthday-message">
                 Chúc mừng <span class="highlight">Sconnect</span> tròn 11 tuổi!<br>
-                🌟 Cảm ơn bạn đã <span class="highlight">"Connect the world"</span>  và mang đến những giá trị <br>
-                cho cộng đồng sáng tạo Việt Nam và thế giới suốt 11 năm qua! 🌟
+                🌟 Cảm ơn bạn đã cùng chúng tôi <span class="highlight">"Connect the world"</span>   và mang đến  <br> giá trị
+                cho cộng đồng sáng tạo suốt 11 năm qua! 🌟
             </div>
 
             <!-- Big Birthday Cake directly under the message -->
@@ -1436,19 +1449,24 @@
         <div class="wishes-section">
             <h2 class="wishes-title">🎂 Lời chúc sinh nhật 🎂</h2>
             <div class="wish-item">
-                🌟 Chúc mừng 11 năm Sconnect đã trở thành biểu tượng của ngành công nghiệp sáng tạo Việt Nam
+                <img src="img/cong.jpg" alt="Cong">
+                <span>🌟 Chúc mừng 11 năm Sconnect đã trở thành biểu tượng của ngành công nghiệp sáng tạo Việt Nam</span>
             </div>
             <div class="wish-item">
-                🚀 Chúc các sản phẩm của Sconnect chinh phục hàng triệu trái tim trên toàn thế giới
+                <img src="img/dung.jpg" alt="Dung">
+                <span>🚀 Chúc các sản phẩm của Sconnect chinh phục hàng triệu trái tim trên toàn thế giới</span>
             </div>
             <div class="wish-item">
-                💎 Chúc đội ngũ Sconnect sau 11 năm vẫn luôn khỏe mạnh, hạnh phúc và tràn đầy cảm hứng sáng tạo
+                <img src="img/hang.jpg" alt="Hang">
+                <span>💎 Chúc đội ngũ Sconnect sau 11 năm vẫn luôn khỏe mạnh, hạnh phúc và tràn đầy cảm hứng sáng tạo</span>
             </div>
             <div class="wish-item">
-                🎯 Chúc Sconnect trong những năm tới sẽ đạt được nhiều thành tựu mới và chinh phục những đỉnh cao mới
+                <img src="img/hoang.jpg" alt="Hoang">
+                <span>🎯 Chúc Sconnect trong những năm tới sẽ đạt được nhiều thành tựu mới và chinh phục những đỉnh cao mới</span>
             </div>
             <div class="wish-item">
-                🌈 Chúc hệ sinh thái Sconnect tiếp tục 11 năm nữa kết nối thế giới bằng những giá trị tích cực
+                <img src="img/linh.jpg" alt="Linh">
+                <span>🌈 Chúc hệ sinh thái Sconnect tiếp tục 11 năm nữa kết nối thế giới bằng những giá trị tích cực</span>
             </div>
         </div>
 
