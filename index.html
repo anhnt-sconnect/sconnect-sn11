@@ -2131,7 +2131,10 @@
                             current = targetNum;
                             clearInterval(timer);
                         }
-                        number.textContent = (targetNum >= 1 ? current.toFixed(targetNum >= 100 ? 0 : 2) : current.toFixed(2)) + suffix;
+                        const originalNumStr = isNumber[0];
+                        const decimalPlaces = originalNumStr.includes('.') ? ((originalNumStr.split('.')[1] || '').length || 2) : 0;
+                        const formatted = decimalPlaces > 0 ? current.toFixed(decimalPlaces) : Math.round(current).toString();
+                        number.textContent = formatted + suffix;
                     }, 50);
                 }
             });
