@@ -1358,6 +1358,178 @@
                 .candle[data-candle="2"] { left: calc(50% - 7px); }
                 .candle[data-candle="3"] { left: calc(50% + 50px); }
             }
+        /* ========== Realistic Birthday Cake ========== */
+        .cake-wrap {
+          display: flex;
+          justify-content: center;
+          margin: 40px 0 20px;
+          perspective: 1000px;
+        }
+        .cake {
+          position: relative;
+          width: 320px;
+          height: 260px;
+          transform-style: preserve-3d;
+          transform: rotateX(10deg);
+          animation: cakeIdle 5s ease-in-out infinite;
+        }
+        /* Plate */
+        .plate {
+          position: absolute;
+          bottom: -60px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 420px;
+          height: 60px;
+          background: radial-gradient(ellipse at center,
+            #ffffff 0%, #f7f7f7 35%, #e6e6e6 70%, #d5d5d5 100%);
+          border-radius: 50%;
+          box-shadow:
+            0 30px 60px rgba(0,0,0,.35),
+            inset 0 8px 12px rgba(255,255,255,.7),
+            inset 0 -8px 12px rgba(0,0,0,.08);
+        }
+        /* Layers (sponge + top ellipse) */
+        .layer {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          height: 90px;
+          border-radius: 0 0 18px 18px;
+          background:
+            linear-gradient(#f6dccb, #edc6af 40%, #e5b498 41%, #f2d0bb 95%);
+          box-shadow: 0 12px 18px rgba(0,0,0,.18);
+        }
+        .layer::before {
+          /* top ellipse for 3D feel */
+          content: '';
+          position: absolute;
+          top: -16px;
+          left: 0;
+          right: 0;
+          height: 32px;
+          border-radius: 50%;
+          background: radial-gradient(ellipse at center,
+            #f9e3d4 0%, #edc6af 55%, #e3b59b 100%);
+          box-shadow:
+            inset 0 10px 14px rgba(255,255,255,.65),
+            0 6px 10px rgba(0,0,0,.12);
+        }
+        .layer1 { bottom: -35px; width: 320px; }
+        .layer2 { bottom: 50px; width: 280px; }
+        .layer3 { bottom: 135px; width: 240px; }
+        /* Icing (cream) */
+        .icing {
+          position: absolute;
+          top: -26px;
+          left: 0; right: 0;
+          height: 44px;
+          border-radius: 50% 50% 14px 14px / 65% 65% 14px 14px;
+          background: linear-gradient(#fff9f7, #fdebe8 60%, #f9e3df);
+          box-shadow:
+            inset 0 12px 20px rgba(255,255,255,.85),
+            inset 0 -10px 14px rgba(0,0,0,.06);
+        }
+        .icing::after {
+          /* subtle sugar sprinkles */
+          content: '';
+          position: absolute; inset: 0 8px 12px 8px;
+          border-radius: 50% 50% 12px 12px / 65% 65% 12px 12px;
+          background-image:
+            radial-gradient(circle 2px at 10% 30%, rgba(255,99,132,.7) 95%, transparent 100%),
+            radial-gradient(circle 2px at 35% 60%, rgba(54,162,235,.7) 95%, transparent 100%),
+            radial-gradient(circle 2px at 62% 40%, rgba(255,206,86,.7) 95%, transparent 100%),
+            radial-gradient(circle 2px at 78% 70%, rgba(75,192,192,.7) 95%, transparent 100%),
+            radial-gradient(circle 2px at 22% 75%, rgba(153,102,255,.7) 95%, transparent 100%);
+          opacity: .9;
+        }
+        /* Drips */
+        .drip {
+          position: absolute;
+          width: 18px;
+          border-radius: 12px;
+          background: linear-gradient(#fff9f7, #fdebe8);
+          box-shadow: inset 0 -4px 6px rgba(0,0,0,.06);
+          bottom: -18px;
+          animation: dripSway 4s ease-in-out infinite;
+        }
+        .d1 { left: 40px;  height: 36px; animation-delay: .2s; }
+        .d2 { left: 110px; height: 48px; animation-delay: .6s; }
+        .d3 { left: 200px; height: 28px; animation-delay: .4s; }
+        /* Candles */
+        .candle {
+          position: absolute;
+          bottom: 190px; /* sits above top layer */
+          width: 22px;
+          height: 70px;
+          border-radius: 8px;
+          background:
+            repeating-linear-gradient(
+              45deg,
+              #fff 0 8px,
+              #ffdede 8px 16px
+            );
+          box-shadow: 0 4px 10px rgba(0,0,0,.15), inset 0 -6px 8px rgba(0,0,0,.06);
+        }
+        .candle[data-candle="1"] { left: 95px; }
+        .candle[data-candle="2"] { left: 150px; height: 88px; }
+        .candle[data-candle="3"] { left: 205px; }
+        .candle::after {
+          /* subtle wax shine */
+          content: '';
+          position: absolute; inset: 0;
+          border-radius: inherit;
+          background: linear-gradient(90deg, rgba(255,255,255,.7), transparent 30% 70%, rgba(0,0,0,.05));
+          mix-blend-mode: screen;
+          pointer-events: none;
+        }
+        .wick {
+          position: absolute;
+          top: -10px; left: 50%;
+          transform: translateX(-50%);
+          width: 3px; height: 12px;
+          background: #222;
+          border-radius: 2px;
+        }
+        /* Flame */
+        .flame {
+          position: absolute;
+          top: -28px; left: 50%;
+          transform: translateX(-50%);
+          width: 16px; height: 26px;
+          border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+          background: radial-gradient(ellipse at center,
+            #fff6c1 0%, #ffd34d 55%, #ff9900 100%);
+          box-shadow:
+            0 0 10px 4px rgba(255,195,0,.55),
+            0 0 26px 12px rgba(255,140,0,.18);
+          filter: saturate(1.1);
+          animation: flameFlicker 1.2s ease-in-out infinite;
+        }
+        .candle[data-candle="2"] .flame { animation-duration: 1.05s; }
+        .candle[data-candle="3"] .flame { animation-duration: 1.3s; }
+        /* Subtle whole-cake idle motion */
+        @keyframes cakeIdle {
+          0%,100% { transform: rotateX(10deg) translateY(0); }
+          50%     { transform: rotateX(9deg)  translateY(-2px); }
+        }
+        /* Drip sway */
+        @keyframes dripSway {
+          0%,100% { transform: translateY(0) rotate(0deg); }
+          50%     { transform: translateY(1px) rotate(1deg); }
+        }
+        /* Flame flicker + glow breathing */
+        @keyframes flameFlicker {
+          0%   { transform: translateX(-50%) translateY(0) scale(1);
+                 box-shadow: 0 0 8px 3px rgba(255,195,0,.45), 0 0 22px 10px rgba(255,140,0,.14); }
+          50%  { transform: translateX(-50%) translateY(-2px) scale(1.08);
+                 box-shadow: 0 0 12px 6px rgba(255,195,0,.65), 0 0 30px 16px rgba(255,140,0,.2); }
+          100% { transform: translateX(-50%) translateY(0) scale(1); }
+        }
+        /* Mobile scale */
+        @media (max-width: 480px) {
+          .cake { transform: rotateX(10deg) scale(.88); }
+        }
         </style>
 </head>
 <body>
